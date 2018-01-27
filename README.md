@@ -12,16 +12,16 @@ A diferencia de otros mercados, como el mercado de valores de Bolsa, el mercado 
 Existen muchas razones que nos pueden llevar a necesitar alguna herramienta de cruce de valores entre cotizadas, en el mismo exchange u otros, y hacer operaciones matemáticas inusuales o que sean engorrosas. Esta libreria y set de aplicaciones viene a facilitar la identificación de las alteraciones de mercado que puedan constituir una oportunidad de negocio.
 
 # Lo que es BurbuTrading
-BurbuTrading es un conjunto de aplicaciones y una librería que toma datos CSV de diferentes valores y diferentes exchanges y permite datamining sobre los mismos. 
+- BurbuTrading es un conjunto de aplicaciones y una librería que toma datos CSV de diferentes valores y diferentes exchanges y permite datamining sobre los mismos. 
 
-Estará escrito en lenguaje PHP, con enfoque de classes (OOP, orientado al objeto).
+- Estará escrito en lenguaje PHP, con enfoque de classes (OOP, orientado al objeto).
 
-La salida de datos es númerica (pantalla, json) y gráfica (la librería elegida es jpgraph). Otras salidas son posibles, claro, pero al menos esas dos estarán disponibles en la rama principal.
+- La salida de datos es númerica (pantalla, json) y gráfica (la librería elegida es jpgraph). Otras salidas son posibles, claro, pero al menos esas dos estarán disponibles en la rama principal.
 
 # Lo que no es BurbuTrading
-BurbuTrading no pretende tener un front-end bonito. 
-BurbuTrading no pretende ser una herramienta de trading de alta frecuencia. 
-BurbuTrading puede ser todo ésto o más, y ser tomado por otros fines, para lo cual, efectuarán un fork o un branch, si así lo estiman, pero el enfoque de la rama principal es puramente matemático y amigable a operación en terminal, sin aderezos y grandes pretensiones.
+- BurbuTrading no pretende tener un front-end bonito. 
+- BurbuTrading no pretende ser una herramienta de trading de alta frecuencia. 
+- BurbuTrading puede ser todo ésto o más, y ser tomado por otros fines, para lo cual, efectuarán un fork o un branch, si así lo estiman, pero el enfoque de la rama principal es puramente matemático y amigable a operación en terminal, sin aderezos y grandes pretensiones que al final suelen ser un lastre para el desarrollo.
 
 # Instrucciones
 
