@@ -20,13 +20,15 @@ Existen muchas razones que nos pueden llevar a necesitar alguna herramienta de c
 
 # Lo que no es BurbuTrading
 - BurbuTrading no pretende tener un front-end bonito. 
+
 - BurbuTrading no pretende ser una herramienta de trading de alta frecuencia. 
+
 - BurbuTrading puede ser todo ésto o más, y ser tomado por otros fines, para lo cual, efectuarán un fork o un branch, si así lo estiman, pero el enfoque de la rama principal es puramente matemático y amigable a operación en terminal, sin aderezos y grandes pretensiones que al final suelen ser un lastre para el desarrollo.
 
 # Instrucciones
 
 En un sistema Linux con PHP instalado, instalad git:
-$ sudo apt-get install git
+- $ sudo apt-get install git
 
 Elegid un directorio (carpeta) donde ponerlo y descargar el proyecto:
 - $ git clone https://github.com/toledanos/burbutrading
@@ -34,7 +36,8 @@ Elegid un directorio (carpeta) donde ponerlo y descargar el proyecto:
 Ejecutad el test:
 - $ php main.php  
 
-Actualmente el test consiste en una salida numérica en pantalla, a partir de un archivo descargado de Bitfinex sobre el par EOS/BTC.
+Actualmente el test consiste en una salida numérica en pantalla, a partir de un archivo descargado de Bitfinex sobre el par EOS/BTC. 
+Las aplicaciones podrán usarse tambien en entornos Windows y Mac, pues GIT y PHP esta disponible en ellos. 
 
 
 
