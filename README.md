@@ -29,10 +29,10 @@ En un sistema Linux con PHP instalado, instalad git:
 $ sudo apt-get install git
 
 Elegid un directorio (carpeta) donde ponerlo y descargar el proyecto:
-$ git clone https://github.com/toledanos/burbutrading
+- $ git clone https://github.com/toledanos/burbutrading
 
 Ejecutad el test:
-$ php main.php  
+- $ php main.php  
 
 Actualmente el test consiste en una salida numérica en pantalla, a partir de un archivo descargado de Bitfinex sobre el par EOS/BTC.
 
