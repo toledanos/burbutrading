@@ -1,5 +1,7 @@
 <?php 
 
+include_once("class/csv/DatoCSV.php");
+
 class CSV_Bitfinex extends DatoCSV{
 	
 	function CSV_Bitfinex($line){

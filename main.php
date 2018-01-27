@@ -1,7 +1,10 @@
 <?php 
 $mono_segundos=3600; // los datos se agrupan por tiempo fijo, monotónicamente
 
-include('mono.php'); // funciones monotónicas
+include_once('class/csv/CSV_Bitfinex.php'); 
+include_once('class/normalizado/Bitfinex.php'); 
+
+//include("mono.php");
 
 // listar ficheros del directorio DATA
 $temp_files = glob(__dir__.'/data/*'); 

@@ -1,5 +1,7 @@
 <?php 
 
+include_once("class/normalizado/DatoSalida.php");
+
 class Bitfinex extends conjuntoDatos{
 
     public function Bitfinex($mono_segundos, $archivo){

@@ -1,5 +1,7 @@
 <?php 
 
+
+
 abstract class conjuntoDatos {
     public $mono_segundos; 	// duración de cada tramo temporal, en segundos
     public $archivo;		// ruta del archivo que contiene los datos
