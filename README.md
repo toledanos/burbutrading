@@ -37,8 +37,8 @@ Ejecutad el test:
 - $ php main.php  
 
 Hay otro test, para probar el parsing de archivo:
-$ cd class/csv
-$ php test_csv.php
+- $ cd class/csv
+- $ php test_csv.php
 
 Actualmente el test principal consiste en una salida numérica en pantalla, a partir de un archivo descargado de Bitfinex sobre el par EOS/BTC. 
 Las aplicaciones podrán usarse tambien en entornos Windows y Mac, pues GIT y PHP esta disponible en ellos. 
