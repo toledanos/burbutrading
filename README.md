@@ -36,7 +36,11 @@ Elegid un directorio (carpeta) donde ponerlo y descargar el proyecto:
 Ejecutad el test:
 - $ php main.php  
 
-Actualmente el test consiste en una salida numérica en pantalla, a partir de un archivo descargado de Bitfinex sobre el par EOS/BTC. 
+Hay otro test, para probar el parsing de archivo:
+$ cd class/csv
+$ php test_csv.php
+
+Actualmente el test principal consiste en una salida numérica en pantalla, a partir de un archivo descargado de Bitfinex sobre el par EOS/BTC. 
 Las aplicaciones podrán usarse tambien en entornos Windows y Mac, pues GIT y PHP esta disponible en ellos. 
 
 
