@@ -2,6 +2,13 @@
 
 include_once("conjuntoDatos.php");
 
+/*   Esta clase contiene los datos estadísticos de operaciones de compra y venta
+ *   correspondientes a un tramo temporal
+ * 	 Esta clase es utilizada por la clase conjuntoDatos, como salida correspondiente
+ *   a una serie de operaciones sobre un conjunto de datos más básicos, obtenidos de 
+ *   un archivo que proporciona el exchange.
+ */
+
 class DatoSalida {
 	public $tms_inicio;   	// timestamp unix de inicio de bloque temporal
     public $tms_final;   	// timestamp unix de final de bloque temporal
@@ -65,13 +72,21 @@ class DatoSalida {
 			$this->p_med_prom = $adicion_prom / $cuenta; // / $this->p_med;
 			$this->p_med_signo = $adicion_signo / $cuenta; // / $this->p_med;; 
 		}
-				
-		echo "----- $inicio ----- $cuenta -($this->cnt_compras,$this->cnt_ventas)-------- $fin --------\r\n";
-		echo "\t\t----- VOLC: $this->vol_max_compra  , $this->vol_min_compra --------------------\r\n";
-		echo "\t\t----- VOLV: $this->vol_max_venta  , $this->vol_min_venta --------------------\r\n";
-		echo "\t\t----- VOLT C/V  $this->vol_comprado / $this->vol_vendido\r\n";
-		echo "\t\t-----[P ini|med|prom|signo|fin]  $this->p_inicio | $this->p_med | $this->p_med_prom | $this->p_med_signo | $this->p_final \r\n";
+		
+		echo $this;    // __toString()
 	}
+	
+	public function __toString() {
+		$txt= "----- ".date("Y-m-d H:i:s",$this->tms_inicio)." ----- compras,ventas: $this->cnt_compras,$this->cnt_ventas--------".
+					date("Y-m-d H:i:s",$this->tms_final)." --------\r\n";
+		$txt.="\t\t----- VOLC: $this->vol_max_compra  , $this->vol_min_compra --------------------\r\n";
+		$txt.="\t\t----- VOLV: $this->vol_max_venta  , $this->vol_min_venta --------------------\r\n";
+		$txt.="\t\t----- VOLT C/V  $this->vol_comprado / $this->vol_vendido\r\n";
+		$txt.="\t\t-----[P ini|med|prom|signo|fin]  $this->p_inicio | $this->p_med | $this->p_med_prom | $this->p_med_signo | $this->p_final \r\n";
+		
+		return $txt;
+	}
+	
 }
 
 ?>
