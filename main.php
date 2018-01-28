@@ -1,5 +1,6 @@
 <?php 
-$mono_segundos=3600; // los datos se agrupan por tiempo fijo, monotónicamente
+
+$mono_segundos=360; // los datos se agrupan por tiempo fijo, monotónicamente
 
 include_once('class/csv/CSV_Bitfinex.php'); 
 include_once('class/normalizado/Bitfinex.php'); 

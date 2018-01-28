@@ -63,7 +63,7 @@ class DatoSalida {
 				$this->vol_vendido += $datocsv->cantidad;
 			}
 			$ult_precio = $datocsv->precio;
-			//echo "$dato->tms \r\n";
+			
 		}
 		$this->p_final = $ult_precio;
 		
@@ -73,7 +73,10 @@ class DatoSalida {
 			$this->p_med_signo = $adicion_signo / $cuenta; // / $this->p_med;; 
 		}
 		
+		$this->bloquedatos=array(); //vaciando el buffer temporal
+		
 		echo $this;    // __toString()
+		
 	}
 	
 	public function __toString() {
