@@ -8,8 +8,7 @@ include_once("class/normalizado/DatoSalida.php");
 
 class Bitfinex extends conjuntoDatos{
 	
-	
-    public function Bitfinex($mono_segundos, $archivo){
+	public function Bitfinex($mono_segundos, $archivo){
 		$this->archivo = $archivo;
 		$this->mono_segundos = $mono_segundos;
 		$this->tms_direccion = false; // los archivos de Bitfinex son descendentes en el tiempo,
@@ -37,9 +36,9 @@ class Bitfinex extends conjuntoDatos{
 			}
 			
 		}else{
-			//$this->procesaArchivo();
-			//echo $this;
-			//$this->guardaArchivo();
+			$this->procesaArchivo();
+			echo $this;
+			$this->guardaArchivo();
 		}
     }
     

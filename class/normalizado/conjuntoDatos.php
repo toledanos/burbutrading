@@ -18,7 +18,6 @@
  * 
  */
 
-
 abstract class conjuntoDatos {
     public $mono_segundos; 	// duración de cada tramo temporal, en segundos
     public $archivo;		// ruta del archivo que contiene los datos
@@ -171,6 +170,9 @@ abstract class conjuntoDatos {
 			rename($this->archivo.".zip", "out/".$this->archivo.".zip");
 		}
 	}
+    
+    
+    
     
     public function __toString(){
 		return "mono_segundos: $this->mono_segundos tms_direccion: $this->tms_direccion maximos_datos: $this->maximos_datos\r\n";
