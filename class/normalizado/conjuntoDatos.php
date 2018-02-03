@@ -126,6 +126,17 @@ abstract class conjuntoDatos {
 		} 
 	}
     
+	/*  Ordena $this->datos conforme a su dato temporal, ya que puede estar ordenado 
+	 *  en tiempo decreciente, como pasa con los CSV de Bitfinex
+	 */
+	public function ordenaDatos(){
+		if(!$this->tms_direccion){  // si estan desordenados, ordenamos
+			echo "Ordenando.. \r\n";
+			$ordenado = usort($this->datos, function($a, $b) { return strcmp($a->tms_inicio, $b->tms_inicio); });
+			print_r($this->datos);
+		}
+	} 
+  
     public function guardaArchivo() {
 		$txt = json_encode($this);  // serializamos este objeto enterito 
 		

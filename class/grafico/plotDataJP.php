@@ -3,6 +3,7 @@
 include_once("plotData.php");
 require_once ('../../../jpgraph/src/jpgraph.php');
 require_once ('../../../jpgraph/src/jpgraph_line.php');
+require_once ('../../../jpgraph/src/jpgraph_date.php');
 
 /*  Este es el objeto grafico bajo la librería jpgraph
  * 
@@ -14,8 +15,8 @@ class plotDataJP extends plotData{
 	public $datay;  // array con los datos del eje Y
 	
 	public function cabeceraPlot(){
-		$this->limites = "1600|1000";
-		$this->margenes = "40|40|30|70";
+		$this->limites = "5000|1000";
+		$this->margenes = "120|120|30|170";
 		
 		$this->dameGraph();  // crea objeto graph
 		
@@ -30,8 +31,10 @@ class plotDataJP extends plotData{
 		foreach($datos as $dato){
 			$datarray = (array) $dato; // necesario para referenciar variable por su nombre.
 			//echo "tms_final: ".$dato->tms_final."\r\n";
-			array_push($this->datax, $dato->tms_final);
-			//echo $datarray[$this->variable]."\r\n";
+			//array_push($this->datax, $dato->tms_inicio);  //dameFecha
+			//echo $this->dameFecha($dato->tms_final)."\r\n";
+			array_push($this->datax, $this->dameFecha($dato->tms_final)); 
+			//echo $datarray[$this->variable]."\r\n";    
 			array_push($this->datay, $datarray[$this->variable]);
 		}
 		$lineplot=new LinePlot($this->datay);
@@ -46,6 +49,9 @@ class plotDataJP extends plotData{
 		$this->graph->xaxis->title->Set("X-title");
 		$this->graph->xaxis->SetPos("min");
 		$this->graph->yaxis->title->Set("Y-title");
+		$this->graph->xaxis->SetLabelAngle(90);
+		$lineplot->SetWeight(2); 
+		$this->graph->xaxis->scale->ticks->Set(10); 
 		
 	}
 	
@@ -61,7 +67,7 @@ class plotDataJP extends plotData{
 		$this->graph = new Graph( intval($limites[0]), intval($limites[1]) );
 		//$this->graph = new Graph(300,200);
 		$this->graph->clearTheme(); // establece el tema
-		$this->graph->SetScale("textlin");
+		$this->graph->SetScale("datlin");
 		
 		
 	}

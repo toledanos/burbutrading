@@ -28,6 +28,7 @@ class Bitfinex extends conjuntoDatos{
 					$this->archivo=$filename;         // cambiamos el nombre del archivo por el que hemos encontrado dentro
 					$dentro = $zip->getFromIndex($i);
 					$this->procesaArchivoBuffered($dentro);
+					$this->ordenaDatos(); // los datos hay que ordenarlos temporalmente
 					$this->guardaArchivoBuffered();
 				}
 				$zip->close();
@@ -37,7 +38,8 @@ class Bitfinex extends conjuntoDatos{
 			
 		}else{
 			$this->procesaArchivo();
-			echo $this;
+			$this->ordenaDatos();  // los datos hay que ordenarlos temporalmente
+			//echo $this;
 			$this->guardaArchivo();
 		}
     }

@@ -75,7 +75,7 @@ class DatoSalida {
 		
 		$this->bloquedatos=array(); //vaciando el buffer temporal
 		
-		echo $this;    // __toString()
+		//echo $this;    // __toString()
 		
 	}
 	
