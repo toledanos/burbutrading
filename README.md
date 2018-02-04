@@ -33,15 +33,8 @@ En un sistema Linux con PHP instalado, instalad git:
 Elegid un directorio (carpeta) donde ponerlo y descargar el proyecto:
 - $ git clone https://github.com/toledanos/burbutrading
 
-Ejecutad el test:
-- $ php main.php  
+Ejecutad los test que encontrareis en la carpeta "test":
+- $ php test_csv.php  
+- $ php test_grafico_1v.php  
 
-Hay otro test, para probar el parsing de archivo:
-- $ cd class/csv
-- $ php test_csv.php
-
-Actualmente el test principal consiste en una salida numérica en pantalla, a partir de un archivo descargado de Bitfinex sobre el par EOS/BTC. 
-Las aplicaciones podrán usarse tambien en entornos Windows y Mac, pues GIT y PHP esta disponible en ellos. 
-
-
-
+En la actualidad, la librería puede procesar archivos RAW generando un archivo JSON con más variables y, a partir de este archivo, obtener un gráfico de una variable que queramos, con el tiempo en la variable X y el dato en la variable Y.
