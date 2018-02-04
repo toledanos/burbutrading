@@ -108,9 +108,9 @@ abstract class plotData{
 	}
 	
 	public function dameFecha($aVal) {
-		//return date('Y-m-d H:i:s',$aVal);
+		return date('Y-m-d H:i:s',$aVal);
 		//return Date('Y-m-d',$aVal);
-		return Date('H:i:s',$aVal);
+		//return Date('H:i:s',$aVal);
 	}
 	
 

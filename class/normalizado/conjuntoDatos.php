@@ -24,6 +24,7 @@ abstract class conjuntoDatos {
     public $mono;		// actual límite de tramo a superar
     public $tms_direccion; 	// sentido ascendente TRUE  descendente FALSE
     public $maximos_datos; // max datos a procesar del archivo ( -1 para todos)
+	public $debug=false;  // true para que haya salida de información
     public $bufferDatos; // array de datos de tipo DatoCSV, temporal
     public $datos;   // array de datos de tipo DatoSalida de este conjunto
     
@@ -68,11 +69,11 @@ abstract class conjuntoDatos {
 				if($cuenta > $this->maximos_datos) $fuera=false;
 			}		
 		}
-		//mono_cierra_tramo($dato); // cierre de este tramo final, porque no hay más datos
+		// cierre de este tramo final, porque no hay más datos
 		$salida=new DatoSalida($this->bufferDatos, $tms_inicio, $this->mono, true);
 		$this->bufferDatos=array(); // reinicio de array
 		array_push($this->datos, $salida);
-		echo "$cuenta ok!!  Tramos: ".sizeof($this->bufferDatos)."\r\n";
+		if( $this->debug ) echo "$cuenta ok!!  Tramos: ".sizeof($this->bufferDatos)."\r\n";
 	}
 
     /*   En esta función la entrada es el nombre del archivo que contiene los csv 
@@ -120,7 +121,7 @@ abstract class conjuntoDatos {
 			$this->bufferDatos=array(); // reinicio de array
 			array_push($this->datos, $salida);
 			fclose($handle);
-			echo "$cuenta ok!!  Tramos: ".sizeof($this->bufferDatos)."\r\n";
+			if( $this->debug ) echo "$cuenta ok!!  Tramos: ".sizeof($this->bufferDatos)."\r\n";
 		} else {
 			echo "Error con $file/r/n";
 		} 
@@ -131,9 +132,9 @@ abstract class conjuntoDatos {
 	 */
 	public function ordenaDatos(){
 		if(!$this->tms_direccion){  // si estan desordenados, ordenamos
-			echo "Ordenando.. \r\n";
+			if( $this->debug ) echo "Ordenando.. \r\n";
 			$ordenado = usort($this->datos, function($a, $b) { return strcmp($a->tms_inicio, $b->tms_inicio); });
-			print_r($this->datos);
+			//print_r($this->datos);
 		}
 	} 
   
@@ -156,7 +157,7 @@ abstract class conjuntoDatos {
 			} 
 			$nombre2=$filename.".zip";
 			$zip->addFromString($filename.".json", $txt);
-			echo $zip->numFiles."--------\r\n";
+			if( $this->debug ) echo $zip->numFiles."--------\r\n";
 			$zip->close();
 			rename($nombre2, "out/".$nombre2);
 		}
@@ -176,9 +177,9 @@ abstract class conjuntoDatos {
 				var_dump(deleteName($zip->getNameIndex( $i )). "/") ;
 			} 
 			$zip->addFromString($this->archivo.".json", $txt);
-			echo $zip->numFiles."--------\r\n";
+			if( $this->debug ) echo $zip->numFiles."--------\r\n";
 			$zip->close();
-			rename($this->archivo.".zip", "out/".$this->archivo.".zip");
+			rename($this->archivo.".zip", "../out/".$this->archivo.".zip");
 		}
 	}
     

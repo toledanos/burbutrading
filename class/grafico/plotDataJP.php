@@ -1,9 +1,9 @@
 <?php 
 
 include_once("plotData.php");
-require_once ('../../../jpgraph/src/jpgraph.php');
-require_once ('../../../jpgraph/src/jpgraph_line.php');
-require_once ('../../../jpgraph/src/jpgraph_date.php');
+require_once ('../../jpgraph/src/jpgraph.php');
+require_once ('../../jpgraph/src/jpgraph_line.php');
+require_once ('../../jpgraph/src/jpgraph_date.php');
 
 /*  Este es el objeto grafico bajo la librería jpgraph
  * 
@@ -15,8 +15,8 @@ class plotDataJP extends plotData{
 	public $datay;  // array con los datos del eje Y
 	
 	public function cabeceraPlot(){
-		$this->limites = "5000|1000";
-		$this->margenes = "120|120|30|170";
+		if( !isset($this->limites) ) $this->limites = "1000|1000";
+		if( !isset($this->margenes) ) $this->margenes = "80|30|30|200";
 		
 		$this->dameGraph();  // crea objeto graph
 		
@@ -31,13 +31,13 @@ class plotDataJP extends plotData{
 		foreach($datos as $dato){
 			$datarray = (array) $dato; // necesario para referenciar variable por su nombre.
 			//echo "tms_final: ".$dato->tms_final."\r\n";
-			//array_push($this->datax, $dato->tms_inicio);  //dameFecha
+			array_push($this->datax, $dato->tms_inicio);  //dameFecha
 			//echo $this->dameFecha($dato->tms_final)."\r\n";
-			array_push($this->datax, $this->dameFecha($dato->tms_final)); 
+			//array_push($this->datax, $this->dameFecha($dato->tms_final)); 
 			//echo $datarray[$this->variable]."\r\n";    
 			array_push($this->datay, $datarray[$this->variable]);
 		}
-		$lineplot=new LinePlot($this->datay);
+		$lineplot=new LinePlot($this->datay,$this->datax);
 		$this->graph->Add($lineplot);
 		
 		$margenes = explode("|",$this->margenes);
@@ -50,14 +50,14 @@ class plotDataJP extends plotData{
 		$this->graph->xaxis->SetPos("min");
 		$this->graph->yaxis->title->Set("Y-title");
 		$this->graph->xaxis->SetLabelAngle(90);
-		$lineplot->SetWeight(2); 
-		$this->graph->xaxis->scale->ticks->Set(10); 
+		$lineplot->SetWeight(1.5);  // grosor de la línea
+		$this->graph->xaxis->scale->ticks->Set(43200); // 1 hr = 3600 , 12 hrs = 43200
 		
 	}
 	
 	public function cierraPlot(){
 		//print_r($this->graph);
-		$this->graph->Stroke("../../img/imagen-".time().".png");
+		$this->graph->Stroke("../img/imagen-".time().".png");
 	}
 	
 	
@@ -68,6 +68,7 @@ class plotDataJP extends plotData{
 		//$this->graph = new Graph(300,200);
 		$this->graph->clearTheme(); // establece el tema
 		$this->graph->SetScale("datlin");
+//		$this->graph->SetScale("linlin");
 		
 		
 	}
